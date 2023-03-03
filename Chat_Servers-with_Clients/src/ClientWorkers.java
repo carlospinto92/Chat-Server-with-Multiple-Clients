@@ -1,35 +1,30 @@
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
-public class ServerWorkers implements Runnable {
+public class ClientWorkers implements Runnable {
 
+    private ArrayList<ClientWorkers> clientWorkers;
     private String user;
     private Socket socket;
     private BufferedReader reader;
     private BufferedWriter writer;
     private boolean active;
-    private ArrayList<ServerWorkers> serverWorkers;
 
-    public String getUser() {
-        return user;
-    }
-
-
-    public ServerWorkers(Socket socket, String user, ArrayList serverWorkers) throws IOException {
+    public ClientWorkers(Socket socket, String user, ArrayList clientWorkers ) throws IOException {
         this.user = user;
         this.socket = socket;
-        this.serverWorkers=serverWorkers;
+        this.clientWorkers=clientWorkers;
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         writer= new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-        this.active = true;
 
-        //serverWorkers.add();
     }
+
+
 
     @Override
     public void run() {
+
 
         String msg = "";
 
@@ -45,26 +40,29 @@ public class ServerWorkers implements Runnable {
                 e.printStackTrace();
             }
 
-            for (ServerWorkers sw : serverWorkers ) {
+            for (ClientWorkers cW : clientWorkers ) {
+
                 try {
 
-                    if(sw.user.equals(msg) && sw.active){
-                        sw.writer.write(user + ": " + msg);
+                    if(cW.user.equals(msg)/* && cW.active*/){
+                        cW.writer.write(user + "said: " + msg);
                         break;
                     }
 
                     //writer.write(msg);
-                    //System.out.println(sw);
+                    System.out.println(cW);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-                //socket.close();
+            //socket.close();
 
-               // reader.close();
-                //writer.close();
+            // reader.close();
+            //writer.close();
 
 
-            }
+        }
+
     }
 }

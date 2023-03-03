@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Client {
@@ -16,33 +17,91 @@ public class Client {
     PrintWriter out;
 
 
+    private ArrayList<ClientWorkers> clientWorkers=new ArrayList<>();
+
+    public String getUser() {
+        return user;
+    }
+
     public Client(String user) throws IOException {
         this.user = user;
         this.socketClient = new Socket(host, 10101);
-        //listen();
-        sendMessage();
+        readMessage.start();
+        sendMessage.start();
+
     }
 
 
-    public void listen() throws IOException {
-
+   /* public void listen() throws IOException {
+        Thread listen = new Thread();
+        listen.start();
         while (socketClient.isConnected()) {
 
             BufferedReader in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
             System.out.println(in.readLine());
 
-
             //in.close();
-
         }
 
-    }
+    } */
 
-    public void sendMessage() throws IOException {
+    Thread sendMessage = new Thread(new Runnable() {
+
+        @Override
+        public void run() {
+            while (socketClient.isConnected()) {
+                Scanner sc = new Scanner(System.in);
+                System.out.println(" <<< Waiting your message >>>");
+                String message = sc.nextLine();
+
+
+                try {
+
+                    out = new PrintWriter(socketClient.getOutputStream(), true);
+                    out.println(message);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+
+
+
+            }
+        }
+    });
+
+    Thread readMessage = new Thread(new Runnable() {
+        @Override
+        public void run() {
+            while (socketClient.isConnected()) {
+
+                BufferedReader in=null;
+                try {
+
+                    in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+
+                    System.out.println(in.readLine());
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                //in.close();
+            }
+        }
+    });
+
+   /* public void sendMessage() throws IOException {
 
         while (socketClient.isConnected()) {
             Scanner sc = new Scanner(System.in);
-            System.out.println(" <<< Write your message >>> \r\n");
+            System.out.println(" <<< Waiting your message >>>");
             String message = sc.nextLine();
 
 
@@ -56,7 +115,7 @@ public class Client {
         //out.close();
 
 
-    }
+    }*/
 
 
     public static void main(String[] args) {
@@ -65,8 +124,10 @@ public class Client {
 
         try {
             Scanner sc = new Scanner(System.in);
+            System.out.println("=============> | N A M E | <============= ");
             String user = sc.nextLine();
             new Client(user);
+            //ClientWorkers clientWorkers1 = new ClientWorkers(clientSocket,user, clientWorkers);
 
 
         } catch (IOException e) {

@@ -11,6 +11,7 @@ public class Server {
     private static ArrayList<ServerWorkers> arrayList = new ArrayList<>();
 
     private static int clientsCounter=0;
+
     private static boolean active=true;
 
     public static boolean isActive() {
@@ -42,19 +43,19 @@ public class Server {
             throw new RuntimeException(e);
         }
 
-        //Socket clientSocket;
+        Socket clientSocket;
 
         while(true){
 
             try {
 
-                Socket clientSocket = serverSocket.accept();
+                clientSocket = serverSocket.accept();
 
                // Scanner sc = new Scanner(System.in);
                // user = sc.toString();
 
                 ++clientsCounter;
-                System.out.println(clientsCounter + " : ==> Client accepted !!\n" );
+                System.out.println(clientsCounter + " : ==> Client accepted !! " );
 
 
                 //BufferedReader input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -63,11 +64,15 @@ public class Server {
                 //DataInputStream input = new DataInputStream(clientSocket.getInputStream());
                // DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
-                ServerWorkers serverWorkers = new ServerWorkers(clientSocket, "==USER--( "+ clientsCounter,arrayList);
+                ServerWorkers serverWorkers = new ServerWorkers(clientSocket, "==USER --> ( "+ clientsCounter + " ) ",arrayList);
+                System.out.println(serverWorkers.getUser() + " entrou no chat");
+
+                arrayList.add(serverWorkers);
+
                 Thread thread = new Thread(serverWorkers);
                 thread.start();
 
-                arrayList.add(serverWorkers);
+
 
 
 
