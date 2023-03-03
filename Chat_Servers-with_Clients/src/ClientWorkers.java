@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class ClientWorkers implements Runnable {
 
-    private ArrayList<ClientWorkers> clientWorkers;
+    private ArrayList<ServerWorkers> serverWorkers;
     private String user;
     private Socket socket;
     private BufferedReader reader;
     private BufferedWriter writer;
     private boolean active;
 
-    public ClientWorkers(Socket socket, String user, ArrayList clientWorkers ) throws IOException {
+    public ClientWorkers(Socket socket, String user, ArrayList serverWorkers ) throws IOException {
         this.user = user;
         this.socket = socket;
-        this.clientWorkers=clientWorkers;
+        this.serverWorkers=serverWorkers;
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         writer= new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
@@ -27,7 +27,7 @@ public class ClientWorkers implements Runnable {
 
 
         String msg = "";
-
+/*
         while (true) {
 
             try {
@@ -40,12 +40,12 @@ public class ClientWorkers implements Runnable {
                 e.printStackTrace();
             }
 
-            for (ClientWorkers cW : clientWorkers ) {
+            for (ServerWorkers cW : serverWorkers ) {
 
                 try {
 
-                    if(cW.user.equals(msg)/* && cW.active*/){
-                        cW.writer.write(user + "said: " + msg);
+                    if(cW.getUser().equals(msg)&& cW.active){
+                        cW.writer.write(user + " said: " + msg);
                         break;
                     }
 
@@ -63,6 +63,6 @@ public class ClientWorkers implements Runnable {
 
 
         }
-
+*/
     }
 }

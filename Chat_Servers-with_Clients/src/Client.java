@@ -12,12 +12,12 @@ public class Client {
 
 
     public static String host = "127.0.0.1";
-    private String user;
+    public static String user;
     private Socket socketClient;
     PrintWriter out;
 
 
-    private ArrayList<ClientWorkers> clientWorkers=new ArrayList<>();
+    //private ArrayList<ClientWorkers> clientWorkers=new ArrayList<>();
 
     public String getUser() {
         return user;
@@ -28,7 +28,6 @@ public class Client {
         this.socketClient = new Socket(host, 10101);
         readMessage.start();
         sendMessage.start();
-
     }
 
 
@@ -63,10 +62,6 @@ public class Client {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-
-
-
             }
         }
     });
@@ -127,6 +122,10 @@ public class Client {
             System.out.println("=============> | N A M E | <============= ");
             String user = sc.nextLine();
             new Client(user);
+
+            //PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            //out.println(user);
+
             //ClientWorkers clientWorkers1 = new ClientWorkers(clientSocket,user, clientWorkers);
 
 

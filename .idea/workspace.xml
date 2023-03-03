@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2acb319a-2132-4fb4-97e2-4b2575d67f07" name="Changes" comment="" />
+    <list default="true" id="2acb319a-2132-4fb4-97e2-4b2575d67f07" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ClientWorkers.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ClientWorkers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ServerWorkers.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ServerWorkers.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +38,13 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/carlo/Academia_de_Codigo_Exercices/Exercicios/Season_2/CHAT_Server-with_Multiple_Clients"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/codecadet/workspace/Season2/CHAT_Server-with_Multiple_Clients",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Client">
@@ -69,7 +81,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677793402242</updated>
+      <workItem from="1677835744158" duration="14440000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

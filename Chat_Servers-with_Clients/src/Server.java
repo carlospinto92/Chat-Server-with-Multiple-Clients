@@ -50,6 +50,11 @@ public class Server {
             try {
 
                 clientSocket = serverSocket.accept();
+                String user;
+
+
+
+
 
                // Scanner sc = new Scanner(System.in);
                // user = sc.toString();
@@ -64,14 +69,15 @@ public class Server {
                 //DataInputStream input = new DataInputStream(clientSocket.getInputStream());
                // DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
-                ServerWorkers serverWorkers = new ServerWorkers(clientSocket, "==USER --> ( "+ clientsCounter + " ) ",arrayList);
-                System.out.println(serverWorkers.getUser() + " entrou no chat");
-
-                arrayList.add(serverWorkers);
+                ServerWorkers serverWorkers = new ServerWorkers(clientSocket, Client.user,arrayList);
 
                 Thread thread = new Thread(serverWorkers);
-                thread.start();
+                thread.setName(Client.user);
 
+                System.out.println(thread.getName()+ " entrou no chat");
+
+                arrayList.add(serverWorkers);
+                thread.start();
 
 
 
