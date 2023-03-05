@@ -17,8 +17,6 @@ public class Client {
     PrintWriter out;
 
 
-    //private ArrayList<ClientWorkers> clientWorkers=new ArrayList<>();
-
     public String getUser() {
         return user;
     }
@@ -49,9 +47,11 @@ public class Client {
         @Override
         public void run() {
             while (socketClient.isConnected()) {
+                String message="";
+
                 Scanner sc = new Scanner(System.in);
                 System.out.println(" <<< Waiting your message >>>");
-                String message = sc.nextLine();
+                message = sc.nextLine();
 
 
                 try {
@@ -75,18 +75,12 @@ public class Client {
                 try {
 
                     in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                try {
-
                     System.out.println(in.readLine());
 
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
                 //in.close();
             }
         }

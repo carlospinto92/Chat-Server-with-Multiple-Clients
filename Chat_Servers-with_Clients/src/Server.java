@@ -45,19 +45,12 @@ public class Server {
 
         Socket clientSocket;
 
+
         while(true){
 
             try {
 
                 clientSocket = serverSocket.accept();
-                String user;
-
-
-
-
-
-               // Scanner sc = new Scanner(System.in);
-               // user = sc.toString();
 
                 ++clientsCounter;
                 System.out.println(clientsCounter + " : ==> Client accepted !! " );
@@ -69,12 +62,13 @@ public class Server {
                 //DataInputStream input = new DataInputStream(clientSocket.getInputStream());
                // DataOutputStream output = new DataOutputStream(clientSocket.getOutputStream());
 
-                ServerWorkers serverWorkers = new ServerWorkers(clientSocket, Client.user,arrayList);
+                ServerWorkers serverWorkers = new ServerWorkers(clientSocket,"USER : " + clientsCounter,arrayList);
 
                 Thread thread = new Thread(serverWorkers);
-                thread.setName(Client.user);
+                thread.setName(serverWorkers.getUser());
 
                 System.out.println(thread.getName()+ " entrou no chat");
+
 
                 arrayList.add(serverWorkers);
                 thread.start();
