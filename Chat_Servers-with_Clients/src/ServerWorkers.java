@@ -9,7 +9,7 @@ public class ServerWorkers implements Runnable {
     private Socket clientSocket;
     private BufferedReader reader;
     private BufferedWriter writer;
-    //private boolean active;
+    private boolean active;
     private ArrayList<ServerWorkers> serverWorkers;
 
     /*public String getUser() {
@@ -20,11 +20,10 @@ public class ServerWorkers implements Runnable {
     public ServerWorkers(Socket clientSocket, String user, ArrayList serverWorkers) throws IOException {
         this.user = user;
         this.clientSocket = clientSocket;
-        this.serverWorkers=serverWorkers;
+        this.serverWorkers = serverWorkers;
         reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-        writer= new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
-        //this.active = true;
-        //serverWorkers.add();
+        writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+        this.active = true;
     }
 
     public String getUser() {
@@ -41,19 +40,28 @@ public class ServerWorkers implements Runnable {
 
                 msg = reader.readLine();
 
-               // System.out.println(msg);
+                if(msg.equals("/quit")){
+                    clientSocket.close();
+                    active=false;
+                    serverWorkers.remove(this);
+                    reader.close();
+                    writer.close();
+                    break;
+                }
+
+                // System.out.println(msg);
 
             } catch (IOException e) {
 
                 e.printStackTrace();
             }
 
-            for (ServerWorkers sw : serverWorkers ) {
+            for (ServerWorkers sw : serverWorkers) {
                 try {
 
-                    if (!sw.user.equals(user)){
+                    if (!sw.user.equals(user) && active) {
 
-                        sw.writer.write(user + ": "+ msg);
+                        sw.writer.write(user + ": " + msg);
                         sw.writer.newLine();
                         sw.writer.flush();
                         break;
@@ -65,19 +73,17 @@ public class ServerWorkers implements Runnable {
             }
 
 
-
-                //writer.write(user + ": "+ msg);
-               //writer.newLine();
-                //writer.flush();
-
+            //writer.write(user + ": "+ msg);
+            //writer.newLine();
+            //writer.flush();
 
 
-                //socket.close();
+            //socket.close();
 
-               // reader.close();
-                //writer.close();
+            // reader.close();
+            //writer.close();
 
 
-            }
+        }
     }
 }

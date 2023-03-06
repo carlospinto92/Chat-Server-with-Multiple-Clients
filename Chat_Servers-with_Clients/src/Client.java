@@ -46,12 +46,25 @@ public class Client {
 
         @Override
         public void run() {
-            while (socketClient.isConnected()) {
+            while (!socketClient.isClosed()) {
                 String message="";
 
                 Scanner sc = new Scanner(System.in);
                 System.out.println(" <<< Waiting your message >>>");
                 message = sc.nextLine();
+
+             /*   if(message.equals("logout")){
+                    try {
+                        socketClient.close();
+                        sendMessage.interrupt();
+                        readMessage.interrupt();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }*/
 
 
                 try {
@@ -63,13 +76,14 @@ public class Client {
                     e.printStackTrace();
                 }
             }
+            sendMessage.interrupted();
         }
     });
 
     Thread readMessage = new Thread(new Runnable() {
         @Override
         public void run() {
-            while (socketClient.isConnected()) {
+            while (!socketClient.isClosed()) {
 
                 BufferedReader in=null;
                 try {
@@ -83,6 +97,8 @@ public class Client {
                 }
                 //in.close();
             }
+            readMessage.interrupt();
+
         }
     });
 
