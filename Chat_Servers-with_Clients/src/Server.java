@@ -15,7 +15,7 @@ public class Server {
     private static boolean active = true;
 
 
-    public void startServer(int port) {
+    public void startServer(int port) throws IOException {
 
         int clientsCounter = 0;
 
@@ -35,23 +35,28 @@ public class Server {
 
         Socket clientSocket;
 
+
         while (true) {
 
             try {
 
+String user ="";
+
                 // Block waiting for client connections
                 clientSocket = serverSocket.accept();
+
+
                 ++clientsCounter;
-                System.out.println(clientsCounter + " : ==> Client accepted !! ");
+                System.out.println(clientsCounter + " : ==> Client accepted !! " );
 
                 // Create a new Server Worker
-                ServerWorkers serverWorkers = new ServerWorkers(clientSocket, "USER : " + clientsCounter, arrayList);
+                ServerWorkers serverWorkers = new ServerWorkers(clientSocket,user, arrayList);
                 arrayList.add(serverWorkers);
 
                 // Serve the client connection with a new Thread
                 Thread thread = new Thread(serverWorkers);
-                thread.setName(serverWorkers.getUser());
-                System.out.println(thread.getName() + " entrou no chat");
+                thread.setName(user);
+                //System.out.println(thread.getName() + " entrou no chat");
                 thread.start();
 
 
@@ -120,7 +125,7 @@ public class Server {
 
     */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Server server = new Server();
         server.startServer(port);

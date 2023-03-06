@@ -24,8 +24,9 @@ public class Client {
     public Client(String user) throws IOException {
         this.user = user;
         this.socketClient = new Socket(host, 10101);
-        readMessage.start();
-        sendMessage.start();
+        socketClient.getOutputStream().write(user);
+        //readMessage.start();
+        //sendMessage.start();
     }
 
 
@@ -46,26 +47,26 @@ public class Client {
 
         @Override
         public void run() {
+            //out.println(user);
+
             while (!socketClient.isClosed()) {
-                String message="";
+            String message="";
 
                 Scanner sc = new Scanner(System.in);
                 System.out.println(" <<< Waiting your message >>>");
                 message = sc.nextLine();
 
-             /*   if(message.equals("logout")){
+                if(message.equals("/quit")){
                     try {
                         socketClient.close();
                         sendMessage.interrupt();
                         readMessage.interrupt();
+                        System.exit(1);
 
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
-
-                }*/
-
+                }
 
                 try {
 
@@ -125,15 +126,22 @@ public class Client {
 
     public static void main(String[] args) {
 
-        Socket clientSocket;
+        //Socket clientSocket = null;
 
         try {
             Scanner sc = new Scanner(System.in);
             System.out.println("=============> | N A M E | <============= ");
             String user = sc.nextLine();
-            new Client(user);
+            Client client = new Client(user);
+            client.readMessage.start();
+            client.sendMessage.start();
 
-            //PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+
+
+            //client.sendMessage();
+
+            //PrintWriter out = new PrintWriter(clientSocket.getOutputStream(),true);
             //out.println(user);
 
             //ClientWorkers clientWorkers1 = new ClientWorkers(clientSocket,user, clientWorkers);

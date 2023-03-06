@@ -18,11 +18,12 @@ public class ServerWorkers implements Runnable {
 
 
     public ServerWorkers(Socket clientSocket, String user, ArrayList serverWorkers) throws IOException {
-        this.user = user;
+        //this.user = user;
         this.clientSocket = clientSocket;
         this.serverWorkers = serverWorkers;
         reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         writer = new BufferedWriter(new OutputStreamWriter(clientSocket.getOutputStream()));
+        this.user= reader.readLine();
         this.active = true;
     }
 
@@ -33,6 +34,8 @@ public class ServerWorkers implements Runnable {
     @Override
     public void run() {
 
+            System.out.println(user + " entrou crl");
+
 
         while (!clientSocket.isClosed()) {
             String msg = "";
@@ -41,6 +44,7 @@ public class ServerWorkers implements Runnable {
                 msg = reader.readLine();
 
                 if(msg.equals("/quit")){
+                    System.out.println(user + " out");
                     clientSocket.close();
                     active=false;
                     serverWorkers.remove(this);
@@ -59,7 +63,7 @@ public class ServerWorkers implements Runnable {
             for (ServerWorkers sw : serverWorkers) {
                 try {
 
-                    if (!sw.user.equals(user) && active) {
+                    if (!sw.user.equals(user)) {
 
                         sw.writer.write(user + ": " + msg);
                         sw.writer.newLine();

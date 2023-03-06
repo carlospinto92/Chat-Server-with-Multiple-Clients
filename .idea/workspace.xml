@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2acb319a-2132-4fb4-97e2-4b2575d67f07" name="Changes" comment="" />
+    <list default="true" id="2acb319a-2132-4fb4-97e2-4b2575d67f07" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ServerWorkers.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ServerWorkers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/ServerWorkers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/ServerWorkers.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1677793402242</updated>
       <workItem from="1677835744158" duration="14440000" />
+      <workItem from="1678098980457" duration="7815000" />
     </task>
     <servers />
   </component>
