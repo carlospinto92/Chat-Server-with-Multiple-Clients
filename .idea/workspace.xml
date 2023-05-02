@@ -7,10 +7,13 @@
     <list default="true" id="2acb319a-2132-4fb4-97e2-4b2575d67f07" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ClientWorkers.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ClientWorkers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ServerWorkers.java" beforeDir="false" afterPath="$PROJECT_DIR$/Chat_Servers-with_Clients/src/ServerWorkers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/ClientWorkers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/ClientWorkers.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/ServerWorkers.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CHAT_Server-with_Multiple_Clients/ServerWorkers.class" afterDir="false" />
     </list>
@@ -37,19 +40,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/codecadet/workspace/Season2/CHAT_Server-with_Multiple_Clients&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/carlo/AcademiadeCodigo/workspace/Season 3/CHAT_Server-with_Multiple_Clients",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
